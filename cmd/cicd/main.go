@@ -12,7 +12,6 @@ import (
 )
 
 func main() {
-	// feature flags for verbose logging and adding transaction names to the REPL prompt
 	var (
 		pipelinePath string
 	)
