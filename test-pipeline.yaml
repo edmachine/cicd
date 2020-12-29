@@ -1,0 +1,25 @@
+name: golang-app-1
+steps:
+    - name: gitpull
+      scripts:
+          -  "/bin/echo /path/to/gitpull.sh"
+    - name: unit test
+      parallel: true
+      scripts:
+          - "/bin/echo /path/to/unittest-1.sh"
+          - "/bin/echo /path/to/unittest-2.sh"
+    - name: build
+      scripts:
+          - "/bin/echo /path/to/build.sh"
+    - name: integration-test
+      parallel: true
+      scripts:
+          - "/bin/echo /path/to/integrationtest-1.sh"
+          - "/bin/echo /path/to/integrationtest-2.sh"
+    - name: package-binary
+      scripts:
+          - "/bin/echo /path/to/package.sh"
+    - name: deploy-binary-to-qa
+      scripts:
+          - "/bin/echo /path/to/deploy.sh"
+

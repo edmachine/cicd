@@ -1,0 +1,8 @@
+name: golang-app-2
+steps:
+    - name: first
+      parallel: true
+      scripts:
+          - "/path/to/first"
+          - "/path/to/first-2"
+          - "/path/to/first-3"
