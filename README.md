@@ -3,6 +3,14 @@ This CICD project is a mock to what a CICD golang application may do in order to
 
 This is a VERY Naive approach to a CICD Pipeline with the requirement that currently the pipelines are just scripts being run in order, but now we need to make a CICD tool that can accomplish this and be maintanable.
 
+# Running
+I use makefiles to make things run easier and repeatable between developers.
+
+`make test`
+`make testcoverage`
+`make run`
+will all run the tests or the codebase and ensure things are working properly
+
 # Data layout
 A pipeline is going to be a yaml file, each pipeline is going to have multiple steps, each step is going to contain multiple scripts and the option to run the scripts in parallel or in serial.
 
