@@ -105,13 +105,17 @@ func (p Pipeline) runParallelStep(step Step) (err error) {
 }
 
 // runStep is an internal method that is used to run scripts in a given step in serial
-func (p Pipeline) runStep(step Step) (err error) {
+func (p Pipeline) runStep(step Step) error {
 	// zap.S().Infow("running step", "step", step)
 
 	for _, stepScript := range step.Scripts {
 		zap.S().Infow("running script", "script", stepScript)
 		// create a new runscript object
 		rscript, err := runscript.New(stepScript)
+		if err != nil {
+			zap.S().Error("err", err)
+			return err
+		}
 		// run in serial
 		if err = rscript.Run(); err != nil {
 			zap.S().Errorw(
